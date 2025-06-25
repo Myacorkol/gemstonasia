@@ -125,7 +125,7 @@ html {
     display: flex;
     align-items: center;
     height: 100vh;
-    background: url('./img/home.png') no-repeat;
+    background: url('./home.png') no-repeat;
     background-position: center;
     background-size:  60rem auto;
     background-position: right;
