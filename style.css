@@ -26,7 +26,10 @@ textarea::placeholder{
     font-size: 1.6rem;
 }
 section {
-    min-height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  height: 100vh;
 }
 :root {
     --bg-color: #020813;
@@ -46,6 +49,8 @@ h1 {
     font-weight: normal;
   }
 body {
+  overflow: hidden;
+  height: 100vh;
     background: var(--bg-color);
     color: var(--text-color);
 }
@@ -125,7 +130,7 @@ html {
     display: flex;
     align-items: center;
     height: 100vh;
-    background: url('./home.png') no-repeat;
+    background: url('./img/home.png') no-repeat;
     background-position: center;
     background-size:  60rem auto;
     background-position: right;
@@ -548,9 +553,10 @@ html {
 }
 /* *** FORM SECTION *** */
 .contact {
-    min-height: auto;
+    height: 100vh;
     padding-top: 2rem;
-    padding-bottom: 7rem;
+    overflow-y: auto;
+
 }
 .form {
     max-width: 70rem;
@@ -736,7 +742,7 @@ section:nth-child(odd) .animate.scroll,
 }
 @media (max-width: 991px) {
     .header {
-        padding: 2rem 4%;
+        padding: 1rem 4%;
     }
     .home {
         background-size: 48rem auto;
@@ -821,9 +827,6 @@ section:nth-child(odd) .animate.scroll,
     .about__img {
         width: 250px;
         height: 250px;
-    }
-    .skills {
-        height: auto;
     }
     .skills__row {
         flex-direction: column;
