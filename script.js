@@ -11,34 +11,64 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navBar.classList.toggle('active');
 }
+
+
 //scrol sections
+// Обработка прокрутки
 window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 100;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-        if (top >= offset && top < offset + height) {
-            //active navbar links
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('.navbar__link[href*=' + id + ']').classList.add('active');
-            })
-            //active sections for animation on scroll
-            sec.classList.add('show-animate');
-        } else {
-            sec.classList.remove('show-animate');
-        }
-    })
-    //sticky header
-    header.classList.toggle('sticky', window.scrollY > 100);
-    //remove navbar and nav links toggle when click the link
+  const top = window.scrollY;
+
+  sections.forEach(sec => {
+    const offset = sec.offsetTop - 100;
+    const height = sec.offsetHeight;
+    const id = sec.getAttribute('id');
+
+    if (top >= offset && top < offset + height) {
+      // Добавляем активный класс ссылке меню
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`.navbar__link[href*="${id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+
+      // Анимация секции
+      sec.classList.add('show-animate');
+    } else {
+      sec.classList.remove('show-animate');
+    }
+  });
+
+  // Липкий хедер
+  header.classList.toggle('sticky', top > 100);
+
+  // Скрыть мобильное меню при скролле
+  menuIcon.classList.remove('bx-x');
+  navBar.classList.remove('active');
+
+  // Анимация футера
+  const footer = document.querySelector('footer');
+  footer.classList.toggle('show-animate', window.innerHeight + top >= document.scrollingElement.scrollHeight);
+
+  // Удаляем #id из адресной строки
+  history.replaceState(null, '', window.location.pathname);
+};
+
+// Обработка кликов по навигации
+document.querySelectorAll('.navbar__link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+
+      // Удаляем #id из адреса
+      history.replaceState(null, '', window.location.pathname);
+    }
+
+    // Закрываем мобильное меню после клика
     menuIcon.classList.remove('bx-x');
     navBar.classList.remove('active');
-    //animation footer on Scroll
-    let footer = document.querySelector('footer');
-    footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
-}
+  });
+});
 
 
 const skillEl = document.querySelector('.skills');
