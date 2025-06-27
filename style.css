@@ -29,7 +29,7 @@ section {
   overflow-y: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  height: 100vh;
+  height: 100dvh;
 }
 :root {
     --bg-color: #020813;
