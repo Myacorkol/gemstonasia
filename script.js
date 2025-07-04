@@ -2,6 +2,10 @@ let header = document.querySelector('header');
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('.navbar__link');
 
+// Обработка прокрутки + проверка на ТГ бразуер
+function isTelegramBrowser() {
+  return /Telegram/i.test(navigator.userAgent);
+}
 
 // toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
@@ -14,10 +18,6 @@ menuIcon.onclick = () => {
 
 
 //scrol sections
-// Обработка прокрутки + проверка на ТГ бразуер
-function isTelegramBrowser() {
-  return /Telegram/i.test(navigator.userAgent);
-}
 if (isTelegramBrowser()) {
   // Если Telegram — сразу активируем анимации и убираем запрет скрола
   document.querySelectorAll('section').forEach(sec => {
