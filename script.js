@@ -12,16 +12,19 @@ menuIcon.onclick = () => {
     navBar.classList.toggle('active');
 }
 
+
 //scrol sections
 // Обработка прокрутки + проверка на ТГ бразуер
 function isTelegramBrowser() {
   return /Telegram/i.test(navigator.userAgent);
 }
 if (isTelegramBrowser()) {
-  // Если Telegram — сразу активируем анимации и больше ничего не трогаем
+  // Если Telegram — сразу активируем анимации и убираем запрет скрола
   document.querySelectorAll('section').forEach(sec => {
     sec.classList.add('show-animate');
+    document.querySelector('body').classList.remove('scroll-off');
   });
+
 } else {
   window.onscroll = () => {
   const top = document.documentElement.scrollTop;
