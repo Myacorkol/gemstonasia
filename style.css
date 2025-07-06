@@ -804,7 +804,7 @@ html {
       margin-bottom: 2rem;
     }
     .home__text {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
     .buttons {
       width: 23.5rem;
@@ -905,9 +905,6 @@ html {
 @media (max-width: 520px) {
   html {
     font-size: 50%;
-  }
-  .social {
-    margin-bottom: 0;
   }
   .home__content {
     margin-top: 5rem;
