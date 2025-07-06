@@ -17,7 +17,6 @@ menuIcon.onclick = () => {
     navBar.classList.toggle('active');
 }
 
-
 //scrol sections
 if (isTelegramBrowser()) {
   // Если Telegram — сразу активируем анимации и убираем запрет скрола

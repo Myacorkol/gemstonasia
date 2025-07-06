@@ -718,10 +718,12 @@ html {
   transition-delay: calc(0.3s / var(--i));
   animation: none;
 }
-section:nth-child(odd) .animate.scroll,
+.about .animate.scroll,
+.skills .animate.scroll,
 .footer .animate.scroll {
   background-color: var(--second-bg-color);
 }
+
 .education__box .animate.scroll {
   width: 105%;
 }
