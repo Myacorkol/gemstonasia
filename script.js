@@ -6,6 +6,7 @@ let navLinks = document.querySelectorAll('.navbar__link');
 function isTelegramBrowser() {
   return /Telegram/i.test(navigator.userAgent);
 }
+isTelegramBrowser();
 
 // toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
